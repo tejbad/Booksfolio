@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'Lato', 'Open Sans', 'PT Sans', sans-serif;
+}
+h2, h4, h5, th, td, tr {
+    text-align: center;
+}
+/* Section Seller Form Starts */
+#books, #branchSel, #yearSemSel, #booksSel, #domainSel {
+    min-width: 400px;
+    border: 1px solid rgb(15, 13, 13);
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin: 4px 0;
+}
+#buk {
+    min-width: 400px;
+    margin: 4px 0;
+}
+label {
+    margin: 0.5em 0.5em 0 0.5em;
+    width: 200px;
+    text-align: left;
+}
+#seller-form fieldset {
+    margin: 1%;
+    text-align: center;
+}
+#seller-form button {
+    font-size: 17px;
+    padding: 0.1% 0.8%;
+    margin: 0.5em;
+    background-color: white;
+    color: black;
+    border: 1px solid #4201ce;
+    border-radius: 20px;
+    transition-duration: 0.6s;
+}
+#seller-form button:hover {
+    border-color: #00c95a;
+}
+/* Section Seller Form Ends */
+
+/* Section Book Description Table Starts*/
+#book-description-table {
+    margin: 0 1rem 1rem;
+}
+#book-description-table tr, td, th{
+    vertical-align: middle !important;
+    font-size: 18px;
+}
+#book-description-table img{
+    height: 40px;
+}
+.delete-icon i {
+    color: black ;
+}
+/* Section Book Description Table Ends*/
+
+.tabulation-2 .nav-pills .nav-item .nav-link {
+  background: #fff;
+  border-radius: 4px;
+  color: #000000;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
+  .tabulation-2 .nav-pills .nav-item .nav-link span {
+    color: #ffd369; }
+  .tabulation-2 .nav-pills .nav-item .nav-link.active {
+    color: #fff;
+    background: #ffd369;
+    border: 1px solid #ffd369; }
+    .tabulation-2 .nav-pills .nav-item .nav-link.active span {
+      color: #fff; }
+
+.tabulation-2 .tab-content {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05); }
+

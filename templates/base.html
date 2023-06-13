@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Booksfolio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="{% static 'header/headerstyle.css'%}">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm  bg-dark">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Booksfolio</a>
+            </div>
+            <div class="nav-links">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                {% if  user.is_authenticated %}
+                <li class="dropdown nav-item"><a class="nav-link dropbtn" href="#">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <div class="dropdown-content">
+                        <a class="nav-link" href="/buyer/buyer/1">Buyer</a>
+                        <a class="nav-link" href="/seller/seller">Seller</a>
+                    </div>
+                </li>
+
+                {% endif %}
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                {% if not user.is_authenticated %}
+                <li class="dropdown nav-item"><a class="nav-link dropbtn" href="/accounts/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                    <div class="dropdown-content">
+                        <a class="nav-link" href="/accounts/register">New Customer? <button>Sign Up</button></a>
+                        <a class="nav-link" href="#">Get App</a>
+                    </div>
+                </li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="/cart/go_to_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>
+                <li>
+                                <div class="dropdown avtar">
+                                    <a href="/accounts/profile_info" data-toggle="dropdown" class="nav-link">
+                                        <img src="{% static 'header/default_pro.jpg'%}" class="avatar" alt="Avatar">{{user.first_name}} {{user.last_name}}</a>
+                                    <div class="dropdown-content">
+                                        <a href="/accounts/profile_info" class="dropdown-item"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a></a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="/accounts/logout" class="dropdown-item"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></a>
+                                    </div>
+                                </div>
+                        {% endif %}
+
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+</body>
+
+</html>

@@ -1,0 +1,401 @@
+{% include "base.html" %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seller page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'buyer_seller/css/style.css'%}">
+    </head>
+
+<body>
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-md-12 pl-md-5 py-md-5">
+                    <div class="row justify-content-start pt-3 pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <span class="subheading">Welcome to Booksfolio</span>
+                            <h2 class="mb-4">Trying to bring market in the campus.</h2>
+                            <div class="tabulation-2 mt-4">
+                                <ul class="nav nav-pills nav-fill d-md-flex d-block">
+                                    <li class="nav-item mb-md-0 mb-2">
+                                        <a class="nav-link active py-2" data-toggle="tab" href="#academic-form">Academic Books</a>
+                                    </li>
+                                    <li class="nav-item px-lg-2 mb-md-0 mb-2">
+                                        <a class="nav-link py-2" data-toggle="tab" href="#non-academic-form">Non-Academic Books</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link py-2 mb-md-0 mb-2" data-toggle="tab" href="#gadgets">Gadgets and Rest</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content bg-light rounded mt-2">
+
+                                    <!-- Section Seller Form Starts -->
+                                    <div id="academic-form" class="tab-pane container p-0 active" >
+                                        <section id="seller-form">
+                                            <h4>Seller form : Enter your books for sale here</h4>
+
+                                            <form action="seller" method="POST" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <fieldset>
+                                                    <label for="domain">Select Domain:</label>
+                                                    <select id="domainSel" size="1" name="domain">
+                                                        <option value="" selected="selected">Select Domain</option>
+                                                    </select><br>
+
+                                                    <label for="branch">Select Branch:</label>
+                                                    <select id="branchSel" size="1" name="branch">
+                                                        <option value="" selected="selected">Select Branch</option>
+                                                    </select><br>
+
+                                                    <label for="year-sem">Year - SEM:</label>
+                                                    <select id="yearSemSel" size="1" name="yr_sem">
+                                                        <option value="" selected="selected">Select Year and Sem</option>
+                                                    </select><br>
+
+                                                    <label for="books-list">Select Books:</label>
+                                                    <select id="booksSel" size="1" name="book_name">
+                                                        <option value="" selected="selected">Please select Books</option>
+                                                    </select><br>
+
+                                                    <label for="publication-author">Author / Publication:</label>
+                                                    <input class="txtboxes" id="books" type="text" placeholder="Enter Publication / Author name" name="author_name"><br>
+
+                                                    <label for="book-publish-year">Book Publish Year / Edition:</label>
+                                                    <input id="books" type="text" step="1" placeholder="Book Publish Year / Edition" name="publish_yr"><br>
+
+                                                    <label for="book-price">Book Price:</label>
+                                                    <input id="books" type="number" step="1" placeholder="Enter Book Price" name="original_price"><br>
+
+                                                    <label for="demand-price">Demand Price:</label>
+                                                    <input id="books" type="number" step="1" placeholder="Enter Demand Price" name="demand_price"><br>
+
+                                                    <label for="book-image">Upload Book Image:</label>
+                                                    <input id="buk" type="file" name="book_img"><br><br>
+
+                                                    <!-- <button type="submit" value="Submit">Final Submit</button> -->
+                                                    <button type="submit"  value="Submit">Add another Book</button>
+                                                    <button type="reset" value="Reset">Reset this form</button>
+                                                </fieldset>
+                                            </form>
+                                        </section>
+
+                                        <!-- Section Books Description Table Starts -->
+                                        <!-- <section id="book-description-table">
+                                            <h2>Uploaded Books for sale</h2>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Book Subject / Title</th>
+                                                        <th scope="col">Author / Publication</th>
+                                                        <th scope="col">Book Publish Year</th>
+                                                        <th scope="col">Book Price</th>
+                                                        <th scope="col">Demand Price</th>
+                                                        <th scope="col">Book Image</th>
+                                                        <th scope="col">Delete Book</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Object Oriented Programming</td>
+                                                        <td>techmax</td>
+                                                        <td>2019</td>
+                                                        <td>390</td>
+                                                        <td>60 %</td>
+                                                        <td><a href="#"><img src="img.jpg" alt=""></a></td>
+                                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Advance Data Structures</td>
+                                                        <td>techmax</td>
+                                                        <td>2019</td>
+                                                        <td>440</td>
+                                                        <td>55 %</td>
+                                                        <td><a href="#"><img src="img.jpg" alt=""></a></td>
+                                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Microprocessors</td>
+                                                        <td>technical</td>
+                                                        <td>2018</td>
+                                                        <td>310</td>
+                                                        <td>50 %</td>
+                                                        <td><a href="#"><img src="img.jpg" alt=""></a></td>
+                                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </section> -->
+                                    </div>
+
+
+                                    <div class="tab-pane container p-0 fade" id="non-academic-form">
+                                        <!-- Section non-academic Form Starts -->
+                                        <section id="seller-form">
+                                            <h4>Seller form : Enter your books for sale here</h4>
+                                            <form action="seller_nonacademic" method="POST" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <fieldset>
+                                                    <label for="book-title">Book Title:</label>
+                                                    <input id="books" type="text" placeholder="Enter complete title" name="book_name"><br>
+
+                                                    <label for="book-description">Book Description:</label>
+                                                    <input id="books" type="text" placeholder="Enter Description" name="disc"><br>
+
+                                                    <label for="publication-author">Author / Publication:</label>
+                                                    <input id="books" type="text" placeholder="Enter Publication / Author name" name="author_name"><br>
+
+                                                    <label for="book-publish-year">Book Publish Year / Edition:</label>
+                                                    <input id="books" type="text" placeholder="Book Publish Year / Edition" name="publish_yr"><br>
+
+                                                    <label for="book-price">Book Price:</label>
+                                                    <input id="books" type="number" step="1" placeholder="Enter Book Price" name="original_price"><br>
+
+                                                    <label for="demand-price">Demand Price:</label>
+                                                    <input id="books" type="number" step="1" placeholder="Enter Demand Price" name="demand_price"><br>
+
+                                                    <label for="book-image">Upload Book Image:</label>
+                                                    <input id="buk" type="file" name="book_img"><br><br>
+
+                                                    <!-- <button type="submit" value="Submit">Final Submit</button> -->
+                                                    <button type="submit"  value="Submit">Add another Book</button>
+                                                    <button type="reset" value="Reset">Reset this form</button>
+                                                </fieldset>
+                                            </form>
+                                        </section>
+
+                                        <!-- Section Books Description Table Starts -->
+                                        <!-- <section id="book-description-table">
+                                            <h2>Uploaded Books for sale</h2>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Book Title</th>
+                                                        <th scope="col">Book Description</th>
+                                                        <th scope="col">Author / Publication</th>
+                                                        <th scope="col">Book Publish Year / Edition</th>
+                                                        <th scope="col">Book Price</th>
+                                                        <th scope="col">Demand Price</th>
+                                                        <th scope="col">Book Image</th>
+                                                        <th scope="col">Delete Book</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Five Point Someone</td>
+                                                        <td>Five point someone</td>
+                                                        <td>Chetan Bhagat</td>
+                                                        <td>4th edition</td>
+                                                        <td>280</td>
+                                                        <td>150</td>
+                                                        <td><a href="#"><img src="img.jpg" alt=""></a></td>
+                                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Rich dad Poor dad</td>
+                                                        <td>Rich dad poor dad</td>
+                                                        <td>Robert Kiyosaki</td>
+                                                        <td>6th edition</td>
+                                                        <td>340</td>
+                                                        <td>220</td>
+                                                        <td><a href="#"><img src="img.jpg" alt=""></a></td>
+                                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Quantative Aptitude</td>
+                                                        <td>Quantative Aptitude book by S.Chand</td>
+                                                        <td>S Chand</td>
+                                                        <td>2016</td>
+                                                        <td>560</td>
+                                                        <td>350</td>
+                                                        <td><a href="#"><img src="img.jpg" alt=""></a></td>
+                                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </section> -->
+                                    </div>
+
+
+                                    <div class="tab-pane container p-0 fade" id="gadgets">
+                                        <!-- Section non-academic Form Starts -->
+                                        <section id="seller-form">
+                                            <h4>Seller form : Enter your books for sale here</h4>
+                                            <form action="seller_gadgets" method="POST" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <fieldset>
+                                                    <label for="product-name">Product-name:</label>
+                                                    <input id="books" type="text" placeholder="Enter Product name" name="gadget_name"><br>
+
+                                                    <label for="product-description">Product Description:</label>
+                                                    <input id="books" type="text" placeholder="Enter Product Description" name="disc"><br>
+
+                                                    <label for="manufacturer">Manufacturer:</label>
+                                                    <input id="books" type="text" placeholder="Enter Manufacturar" name="manufacturer"><br>
+
+                                                    <label for="manufacturing-year">Manufacture year:</label>
+                                                    <input id="books" type="number" placeholder="Enter Manufacturing year" name="manufacturer_yr"><br>
+
+                                                    <label for="product-price">Product Price:</label>
+                                                    <input id="books" type="number" step="1" placeholder="Enter Produce Price" name="original_price" ><br>
+
+                                                    <label for="demand-price">Demand Price:</label>
+                                                    <input id="books" type="number" step="1" placeholder="Enter Demand Price" name="demand_price"><br>
+
+                                                    <label for="product-image">Upload Product Image:</label>
+                                                    <input id="buk" type="file" name="gadget_img"><br><br>
+
+                                                    <!-- <button type="submit" value="Submit">Final Submit</button> -->
+                                                    <button type="submit"  value="Submit">Add another Product</button>
+                                                    <button type="reset" value="Reset">Reset this form</button>
+                                                </fieldset>
+                                            </form>
+                                        </section>
+
+                                        <!-- Section Books Description Table Starts -->
+
+                                        <!-- <section id="book-description-table">
+                                            <h2>Uploaded Books for sale</h2>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Product-name</th>
+                                                        <th scope="col">Product Description</th>
+                                                        <th scope="col">Manufacturer</th>
+                                                        <th scope="col">Manufacture year</th>
+                                                        <th scope="col">Product Price</th>
+                                                        <th scope="col">Demand Price</th>
+                                                        <th scope="col">Product Image</th>
+                                                        <th scope="col">Delete Product</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Casio SW-4192 Calculator</td>
+                                                        <td>Calculator</td>
+                                                        <td>Casio</td>
+                                                        <td>2018</td>
+                                                        <td>990</td>
+                                                        <td>600</td>
+                                                        <td><a href="#"><img src="img.jpg" alt=""></a></td>
+                                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>RSE Stethoscope Dual head</td>
+                                                        <td>Stethoscope</td>
+                                                        <td>RSE</td>
+                                                        <td>2019</td>
+                                                        <td>300</td>
+                                                        <td>140</td>
+                                                        <td><a href="#"><img src="img.jpg" alt=""></a></td>
+                                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Boat Stone 260 Bluetooth Speaker</td>
+                                                        <td>Speaker</td>
+                                                        <td>Boat</td>
+                                                        <td>2019</td>
+                                                        <td>1500</td>
+                                                        <td>750</td>
+                                                        <td><a href="#"><img src="img.jpg" alt=""></a></td>
+                                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </section> -->
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if user_books %}
+        
+        <section id="book-description-table">
+            <h2>Uploaded Books for sale</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Book Subject / Title</th>
+                        <th scope="col">Author / manufacturer</th>
+                        <th scope="col">Publish / Manufacturer Year</th>
+                        <!-- <th scope="col">Booksfolio Rating</th> -->
+                        <th scope="col">Book Price</th>
+                        <th scope="col">Demand Price</th>
+                        <th scope="col">Book Image</th>
+                        <th scope="col">Delete Book</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in user_books %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{book.book_name}}</td>
+                        {% if book.author_name %}
+                        <td>{{book.author_name}}</td>
+                        {% elif book.manufacturer %}
+                        <td>{{book.manufacturer}}</td>
+                        {% endif %}
+        
+                        {% if book.publish_yr %}
+                        <td>{{book.publish_yr}}</td>
+                        {% elif book.manufacturer_yr %}
+                        <td>{{book.manufacturer_yr}}</td>
+                        {% endif %}
+                        <!-- <td>{{book.rating}}</td> -->
+                        <td>{{book.original_price}}</td>
+                        <td>{{book.demand_price}}</td>
+                        {% if book.book_img %}
+                        <td><a href="{{book.book_img.url}}"><img src="{{book.book_img.url}}" alt=""></a></td>
+                        <td class="delete-icon"><a href="seller/delete/{{book.id}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                        {% else %}
+                        <td><img src="" alt=""></td>
+                        {% endif %}
+        
+                    </tr>
+                    {% endfor %}
+        
+                </tbody>
+            </table>
+        </section>
+        
+        {% endif %}
+    </section>
+
+            {% include "footer.html" %}
+
+
+    <!-- <script src="{% static 'buyer_seller/js/jquery.min.js'%}"></script>
+    <script src="{% static 'buyer_seller/js/jquery-migrate-3.0.1.min.js'%}"></script>
+    <script src="{% static 'buyer_seller/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'buyer_seller/js/jquery.waypoints.min.js'%}"></script>
+    <script src="{% static 'buyer_seller/js/jquery.stellar.min.js'%}"></script>
+    <script src="{% static 'buyer_seller/js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'buyer_seller/js/aos.js'%}"></script>
+    <script src="{% static 'buyer_seller/js/scrollax.min.js'%}"></script>
+    <script src="{% static 'buyer_seller/js/main.js'%}"></script> -->
+    <script src="{% static 'buyer_seller/js/sellermain.js'%}"></script>
+
+</body>
+</html>

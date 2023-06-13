@@ -1,0 +1,79 @@
+{% include "base.html" %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'contact/contactstyles.css'%}">
+</head>
+<body>
+    <div class="container contact-us">
+        <h1 class="title1">Contact Us</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="title2">Query Form</h1>
+                <form action="contact_mail_send" method="post">
+                    {% csrf_token %}
+
+                    <div class="form form__1">
+                        <label for="name" class="form__label">Full name</label>
+                        <input type="text" class="form__input" name="sender_name" placeholder="" id="name" required>
+                    </div>
+
+                    <div class="form form__2">
+                        <label for="email" class="form__label">Email address</label>
+                        <input type="email" class="form__input" name="sender_email" placeholder="" id="email" required>
+                    </div>
+
+                    <div class="form form__3">
+                        <label for="message" class="form__label">Your message</label>
+                        <input type="text" class="form__input" name="sender_msg" placeholder="" id="message" required>
+                    </div>
+
+                    <h3>{% for message in messages %}
+                        <h4>{{ message }}</h4>
+                        {% endfor %}
+                    </h3>
+
+                    <button type="submit" class="form__btn">
+                        <span class="form__btn--visible"><p>Submit</p></span>
+                        <span class="form__btn--invisible"><p>Message sent!</p></span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="col-md-6 contact">
+                <h1 class="title2">Contact Detail</h1>
+                <div class="content">
+                    <!-- Info-1 -->
+                    <div class="info">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <h4 class="d-inline-block">PHONE :<br>
+                        <span>+12457836913 , +12457836913</span></h4>
+                    </div>
+                    <!-- Info-2 -->
+                    <div class="info">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <h4 class="d-inline-block">EMAIL :<br>
+                        <span>care@booksfolio.com</span></h4>
+                    </div>
+                    <!-- Info-3 -->
+                    <div class="info">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <h4 class="d-inline-block">ADDRESS :<br>
+                        <span>2, Rajghad - STES Lonavala</span></h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% include "footer.html" %}
+
+    <script src="{% static 'contact/contactmain.js'%}"></script>
+</body>
+</html>

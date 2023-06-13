@@ -1,0 +1,47 @@
+#seller-profile {
+    margin: 1%;
+    font-family: 'Roboto', 'Lato', 'Open Sans', 'PT Sans', sans-serif;
+    text-align: center;
+}
+#seller-profile h1 {
+    font-size: 2.8rem;
+}
+.user-detail {
+    background: #eee;
+    padding: 20px;
+}
+.user-detail .card {
+    box-sizing: border-box;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);
+    border: 0;
+    padding: 16px;
+}
+.user-detail .card .card-body {
+    padding: 0;
+}
+.user-detail .card .card-img-top img {
+    height: 240px;
+    width: 240px;
+    border-radius: 50%;
+}
+.user-detail .user-detail-card span {
+    font-size: 20px;
+    font-weight: 350;
+}
+
+.profile-btns {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border: 0;
+    margin-top: 20px;
+    padding: 6px 25px;
+    background-color: #6b6;
+    font-size: 20px;
+    border-radius: 3px;
+}
+.profile-btns:hover {
+    background-color: #494;
+    text-decoration: none;
+    color: rgb(15, 10, 10);
+}

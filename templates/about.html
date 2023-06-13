@@ -1,0 +1,157 @@
+{% include "base.html" %}
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> About</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'about/css/bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'about/css/owl.carousel.min.css'%}">
+	<link rel="stylesheet" href="{% static 'about/css/style.css'%}">
+</head>
+<body>
+    <main>
+        <div class="slider-area position-relative">
+                <div class="single-slider">
+                    <div class="slider-cap-wrapper">
+                        <div class="hero__caption hero__caption2">
+                            <h1 data-animation="fadeInLeft" data-delay=".4s">About US</h1>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- slider Area End-->
+        <!--? About 1 Start-->
+        <section class="about-low-area section-padding40">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-6 col-lg-6 col-md-10">
+                        <div class="about-caption mb-50">
+                            <!-- Section Tittle -->
+                            <div class="section-tittle mb-35">
+                                <span>About Us</span>
+                                <h2><span class="tittle-light">Connect to Market</span> with us</h2>
+                            </div>
+                            <p><b>Booksfolio</b> is the project developed by students for students. We are trying to connect market with you. <br>
+                                This is a plaform for selling and buying your products easily. <br>
+                                First idea from : <b> Aashish & Yash </b>
+                            </p>
+                        </div>
+                        <!-- <a href="/about" class="btn about-btn">More About Us</a> -->
+                    </div>
+                    <div class="col-xl-5 col-lg-6 col-md-9">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="about-right-cap">
+                                    <div class="about-right-img">
+                                        <img src="{% static 'tlogo.png'%}" alt="">
+                                    </div>
+                                    <p><b>Booksfolio</b> is the product selling and buying project.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About  End-->
+
+        <!-- Team Start -->
+        <div class="team-area bg-light section-padding40">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="section-tittle mb-70 text-center">
+                            <span>Our Team</span>
+                            <h2>Meet with our <span class="tittle-light"> Developers</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6" style="margin-left: 15%;">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="{% static 'about/img/team1.png'%}" alt="">
+                            </div>
+                            <div class="team-caption">
+                                <h3><a href="#">Tejas</a></h3>
+                                <span>Backend Developer and Secuirity incharge</span>
+                                <!-- Team social -->
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6" style="margin-left: 3%;" >
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="{% static 'about/img/team2.png'%}" alt="">
+                            </div>
+                            <div class="team-caption">
+                                <h3><a href="#">Amit</a></h3>
+                                <span>Frontend Developer</span>
+                                <!-- Team social -->
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="{% static 'about/img/team3.png'%}" alt="">
+                            </div>
+                            <div class="team-caption">
+                                <h3><a href="#">Jonson</a></h3>
+                                <span>Creative Didector</span>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+        <!-- contact-animal-owner Start -->
+        <div class="contact-animal-owner section-bg2" data-background="{% static 'about/img/section_bg02.png'%}">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-md-11 col-sm-10">
+                        <div class="contact_text text-center">
+                            <div class="section_title text-center">
+                                <h3>Get started with our awesome service today</h3>
+                                <p>Start selling and buying your stuff now.</p>
+                            </div>
+                            <div class="contact_btn d-flex align-items-center justify-content-center">
+                                <a href="/" class="btn">Get Started Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contact-animal-owner End -->
+        <!-- {% include "footer.html" %} -->
+
+    <script src="{% static 'about/js/jquery-1.12.4.min.js'%}"></script>
+    <script src="{% static 'about/js/slick.min.js'%}"></script>
+    <script src="{% static 'about/js/main.js'%}"></script>
+
+    </body>
+</html>

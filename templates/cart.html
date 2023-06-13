@@ -1,0 +1,97 @@
+{% include "base.html" %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="cart-style.css"> -->
+    <link rel="stylesheet" href="{% static 'cart-new/cart-style.css'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cart New</title>
+</head>
+<body>
+
+<h1 class="checkout-heading">Shopping Cart</h1>
+
+<div class="container shopping-cart">
+    <h4>    
+        {% for msg in messages %}
+        {{msg}}
+        {% endfor %}
+    </h4>
+    <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Product Details</label>
+        <label class="product-price">Price</label>
+    </div>
+
+    {% if cart_items %}
+    {% for book in cart_items %}
+    <div class="product">
+        <div class="product-image">
+            <img src="{{book.book_img.url}}">
+                    <div class="product-removal">
+                        <a href="/cart/remove/{{book.id}}">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </a>
+                    </div>
+        </div>
+        <div class="product-details">
+            <a href="/buyer/solo_product/{{book.id}}"><div class="product-title">{{book.book_name}}</div></a>
+            <div class="product-description">
+            <p>Author : {{book.author_name}}</p>
+            <p>Publish Year :<span>{{book.publish_yr}}</span></p>
+            </div>
+        </div>
+        <div class="product-price">{{book.shown_price}}</div>
+    </div>
+
+    {% endfor %}
+    {% endif %}
+
+    
+   
+    <div class="totals">
+        <!-- <div class="totals-item">
+            <label>Subtotal</label>
+            <div class="totals-value" id="cart-subtotal">71.97</div>
+        </div> -->
+        <!-- <div class="totals-item">
+            <label>Shipping</label>
+            <div class="totals-value" id="cart-shipping">15.00</div>
+        </div> -->
+        <div class="totals-item totals-item-total">
+            <label>Grand Total</label>
+            <div class="totals-value" id="cart-total">{{total}}</div>
+        </div>
+    </div>
+    {% if cart_items %}
+    <button class="checkout" onclick="myFunction()"> Checkout</button>
+    {% else %}
+    <a class="checkout" href="/buyer/buyer/1">Continue Shopping</a>
+    {% endif %}
+</div>
+
+<!-- checkout form -->
+<div class="checkout-form display-none container" style="display:none" id="checkout-form">
+    <h3>Place your order</h3>
+
+    <form action="/buyer/place_order" method="post">
+        {% csrf_token %}
+        <label for="mob1">Contact No:</label>
+        <input type="number" id="mob1" name="primary_mob"><br>
+        <label for="mob2">Alternate Contact No:</label>
+        <input type="number" id="mo2" name="secondary_mob"><br>
+        <label for="add">Address:</label>
+        <input type="text" id="add" name="address"><br>
+        <button type="submit" class="checkout-form-btn">Place Order</button>
+    </form>
+</div>
+    {% include "footer.html" %}
+<!-- <script src="cart-main.js"></script> -->
+    <link rel="stylesheet" href="{% static 'cart-new/cart-style.css'%}">
+<script src="{% static 'cart-new/cart-main.js'%}"></script>
+</body>
+</html>

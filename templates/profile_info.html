@@ -1,0 +1,72 @@
+{% include "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User-Profile</title>
+    <link rel="stylesheet" href="{% static 'profile_css/prof.css'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<!-- Main Content -->
+    <section id="seller-profile">
+        <h1>User Profile</h1>
+        <div class="user-detail container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card user-profile-card" data-mh="card-one">
+                        <div class="card-img-top">
+                            {% if data.prof_img %}
+                            <img src="{{data.prof_img.url}}" alt="oops. image not found!!">
+                            {% else %}
+                            <img src="{% static 'profile_css/default_pro.jpg'%}" alt="oops. image not found!!">
+                            {% endif %}
+                        </div>
+                        <div class="card-body" style="align-items: center;">
+                            <h3 style="display: inline-block;">{{data.first_name}}  </h3>
+                            <h3 style="display: inline-block;">  {{data.last_name}}</h3>
+                        </div>
+                        {% if data.mob_no %}
+                        <p><span>Contact No. :</span> {{data.mob_no}}</p>
+                        {% else %}
+                        <p><span>Contact No. :</span>  None  </p>
+                        {% endif %}
+                        {% if data.email %}
+                        <p><span>Email ID :</span> {{data.email}}</p>
+                        {% else %}
+                        <p><span>Email ID :</span> None </p>
+                        {% endif %}
+                        <!-- {% if data.edu %}
+                        <p><span>Educational Qualifications :</span> {{data.edu}} </p>
+                        {% else %}
+                        <p><span>Educational Qualifications :</span> None </p>
+                        {% endif %}
+                        {% if data.college_name %}
+                        <p><span>College :</span> {{data.college_name}} </p>
+                        {% else %}
+                        <p><span>College :</span> None </p>
+                        {% endif %}
+                        {% if data.college_branch %}
+                        <p><span>Branch :</span> {{data.college_branch}} </p>
+                        {% else %}
+                        <p><span>Branch :</span> None </p>
+                        {% endif %} -->
+                        <div class="">
+                            <a class="profile-btns" href="/accounts/profile/change_password"> Change Password</a>
+                            <a class="profile-btns" href="/accounts/edit_profile"> Edit Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "footer.html" %}
+
+</body>
+</html>

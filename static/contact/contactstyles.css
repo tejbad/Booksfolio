@@ -1,0 +1,166 @@
+html {
+	box-sizing: border-box;
+	overflow-y: scroll;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: #373737;
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+.contact-us {
+	margin-bottom: 2rem;
+}
+
+.title1 {
+	padding: 2rem 3rem;
+	margin-bottom: 1.2rem;
+	margin-top: 2rem;
+	font-size: 1.8rem;
+	text-align: center;
+	color: #373737;
+	border-radius: 0.4rem 0.4rem 0 0;
+	background: #f2f2f2;
+	font-weight: 700;
+}
+
+.title2 {
+	padding: 1.6rem 2.4rem;
+	margin-bottom: 1.2rem;
+	font-size: 1.4rem;
+	text-align: center;
+	color: #373737;
+	border-radius: 0.4rem 0.4rem 0 0;
+	background: #f2f2f2;
+	font-weight: 700;
+}
+
+/* contact details right side starts here */
+.contact .content .info {
+	margin-top: 2rem;
+	margin-left: 2rem;
+}
+.contact .content .info i {
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    color: #02434b;
+    margin-right: 20px;
+    text-align: center;
+    width: 20px;
+}
+.contact .content .info h4 {
+	font-size: 17px;
+	font-weight: 400;
+    line-height: 1.4;
+}
+
+.contact .content .info h4 span {
+    font-size: 16px;
+    font-weight: 300;
+    color: #8d8d8d;
+}
+
+/* query form left side starts here */
+.form {
+	display: flex;
+	flex-direction: column;
+	margin: 2rem 1rem;
+	position: relative;
+}
+.form.active label {
+	transform: translateY(-2.2rem);
+	visibility: visible;
+	font-size: 1.3rem;
+	color: #7581ff;
+}
+
+.form__input {
+	font-size: 1.2rem;
+	padding: 0.6rem 0;
+	border: none;
+	background: transparent;
+	border-bottom: 2px solid #c1c1c1;
+}
+
+.form__input:focus {
+	outline: none;
+	border-bottom: 2px solid #c1c1c1;
+}
+
+.form__input:focus:invalid {
+	border-bottom: 2px solid #7581ff;
+}
+
+.form__label {
+	font-size: 1.2rem;
+	color: #c1c1c1;
+	position: absolute;
+	top: 1rem;
+	pointer-events: none;
+	transition: all 0.3s;
+}
+
+.form__btn {
+	background: #7581ff;
+	color: #fff;
+	width: 40%;
+	border: none;
+	font-size: 1.2rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin: 1rem 30%;
+	cursor: pointer;
+	border-radius: 0.4rem;
+	box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.15);
+	overflow: hidden;
+	position: relative;
+	transition: all 0.2s;
+}
+.form__btn--visible p{
+	margin-top: 15px;
+}
+.form__btn--invisible p{
+	margin-top: 5px;
+}
+
+.form__btn:focus {
+	outline: 0;
+}
+
+.form__btn:hover {
+	background-color: #5162fe;
+}
+
+.form__btn > * {
+	transition: all 0.4s;
+	transition-delay: 1s;
+	display: inline-block;
+}
+
+.form__btn--invisible{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: -100%;
+}
+
+.form__btn--invisible.visible {
+	top: 11px;
+}
+
+.form__btn--visible {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.form__btn--visible.invisible {
+	transform: translateY(200%);
+}

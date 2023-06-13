@@ -1,0 +1,77 @@
+.wrapper {
+    margin-top: 3rem;
+}
+.product {
+    -webkit-box-shadow: 1px 1px 3px 1px rgba(176, 176, 176, 1);
+    -moz-box-shadow: 1px 1px 3px 1px rgba(176, 176, 176, 1);
+    box-shadow: 1px 1px 3px 1px rgba(176, 176, 176, 1);
+    border-radius: 3px;
+}
+.product-image {
+    position: relative;
+    margin: 15%;
+    /* margin-left: 15%; */
+    height: 450px;
+    width: 500px;
+    overflow: hidden;
+}
+.product-image .image {
+    height: 100%;
+    width: 100%;
+    background-image: url('../single-product/images/book.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s ease-out;
+}
+.product-details {
+    margin-top: 30px;
+}
+.product-details p {
+    margin-top: 10px;
+}
+
+.category{
+    margin: 10px 0;
+    margin-top: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: gray;
+}
+.category a {
+    text-decoration: none;
+    color: black;
+    margin-right: 4rem;
+}
+.category a:hover {
+    color: dimgray;
+}
+.prix{
+    margin: 3rem 0;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    border-left: 4px solid rgb(255,177,33);
+}
+.prix span{
+    padding-left: 10px;
+}
+small {
+    text-decoration: line-through;
+    padding-right: 10px;
+    font-size: 16px;
+    color: midnightblue;
+}
+.crt{
+    color: rgb(15, 9, 9);
+    text-decoration: none;
+    box-shadow: 1px 1px 3px 1px rgba(176, 176, 176, 1);
+    border-radius: 5%;
+    padding: 5px;
+    background-color: floralwhite;
+}
+.crt:hover {
+    text-decoration: none;
+    color: dimgray;
+}

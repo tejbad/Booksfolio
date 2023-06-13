@@ -1,0 +1,61 @@
+{% include "base.html" %}
+{% load static %}
+<html>
+<head>
+    <title>product detais</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'single_product/new.css'%}">
+</head>
+
+<body>
+
+<div class="wrapper" >
+    <div class="container col-md-10">
+        <div class="row product">
+            <div class="col-md-6">
+                <div class="product-image">
+                    <div class="image">
+                        <img src="{{solo_p.book_img.url}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="category">
+                    <span>{{solo_p.product_type}}</span>
+                    <!-- <a href="#"><span>Next <i class="fa fa-arrow-right" aria-hidden="true"></i></span></a> -->
+                </div>
+                <div class="product-details">
+                <h2>{{solo_p.book_name}}</h2>
+                {% if solo_p.disc %}
+                <p><b>Description: </b> {{solo_p.disc}} </p>
+                {% endif %}
+                    {% if solo_p.author_name %}
+                    <p><b>Author: </b> <span> {{solo_p.author_name}}</span></p>
+                    {% else %}
+                    <p><b>Manufacturer: </b> <span>{{solo_p.manufacturer}}</span></p>
+                    {% endif %}
+
+                    {% if solo_p.publish_yr %}
+                    <p><b>Publish Year: </b> <span> {{solo_p.publish_yr}}</span></p>
+                    {% else %}
+                    <p><b>Manufacturer Year: </b> <span>{{solo_p.manufacturer_yr}}</span></p>
+                    {% endif %}
+
+                </div>
+                <div class="prix">
+                    <span><small>{{solo_p.original_price}}</small><b>{{solo_p.shown_price}}</b></span>
+                    <a class="crt" href="/cart/add_cart/{{solo_p.id}}">Add to card</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% include "footer.html" %}
+<script src="{% static 'single_product/new.js'%}"></script>
+</body>
+
+</html>
